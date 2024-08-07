@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Management</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&display=swap");
+    </style>
+    <link rel="shortcut icon" href="profile/1.png" type="image/x-icon">
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row vh-100">
+        <div
+          class="col-2 title-colum d-flex flex-column justify-content-between p-0"
+        >
+          <header id="header-col-1" class="header ps-4 py-1">
+            <h3 class="head-title text-white">Employee</h3>
+            <h3 class="head-subtitle text-white">Management</h3>
+          </header>
+
+          <body>
+            <hr class="hr-blurry m-0"/>
+            <ul id="sideList"
+              class="text-white d-flex flex-column gap-1 text-start ps-4 pt-5 flex-grow-1"
+            >
+              <li class="list d-flex gap-2 ps-3 align-items-center">
+                <i class="fa-solid fa-house"></i
+                ><span class="left-menus">Dashboard</span>
+              </li>
+              <li id="emoloyees" class="list d-flex gap-2 ps-3 align-items-center">
+                <i class="fa-solid fa-chart-simple"></i
+                ><span class="left-menus">Employees</span>
+              </li>
+              <li class="list d-flex gap-2 ps-3 align-items-center">
+                <i class="fa-solid fa-user"></i
+                ><span class="left-menus">My Profile</span>
+              </li>
+              <li class="list d-flex gap-2 ps-3 align-items-center">
+                <i class="fa-solid fa-lock"></i
+                ><span class="left-menus">Logout</span>
+              </li>
+            </ul>
+          </body>
+          <hr class="hr-blurry m-0" />
+          <footer id="footer-col1" class="footer-col1 d-flex align-items-center py-0 ps-0 gap-0">
+            <h6 class="h6 footer-copy-r py-1 text-white">Powered by</h6>
+            <img class="copyright-logo" src="stackup logo/image 1.png" alt="" />
+          </footer>
+        </div>
+
+
+
+        
+        <div
+          class="col-10 header-contents content-column d-flex flex-column justify-content-between p-0"
+        >
+          <header
+            class="header-contents ps-3 py-1 d-flex justify-content-between align-items-center"
+          >
+            <div class="titles d-flex flex-column justify-content-center">
+              <h6 class="head-content-tagline">Dashboard / Employees</h6>
+              <h3 class="head-content-title">Employees</h3>
+            </div>
+            <div id="search-Bar"
+              class="py-1 me-3 search-Bar bg-white d-flex align-items-center justify-content-between gap-4"
+            >
+              <div
+                class="header-search-section rounded-5 d-flex align-items-center py-1 px-2"
+              >
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input
+                onkeyup="search()"
+                id="search"
+                  type="text"
+                  class="header-searchbox ps-2"
+                  placeholder="Search"
+                />
+              </div>
+              <i class="fa-solid fa-bell"></i>
+              <div class="user-img rounded-5">
+                <img class="rounded-5" src="New folder/Elipse 5.png" alt="" />
+              </div>
+            </div>
+          </header>
+
+          <div class="flex-grow-1 d-flex pb-3 flex-column">
+            <div id="outlineEmployees"
+              class="row bg-white mx-3 px-4 pt-2 mb-3 rounded-3 flex-grow-1 d-flex flex-column"
+            >
+              <div class="col-lg-12">
+                <div class="row pb-1">
+                  <div
+                    class="col-lg-12 d-flex align-items-center justify-content-between p-0"
+                  >
+                    <div
+                      class="d-flex col-5 align-items-center gap-2"
+                    >
+                      <h3 class="page-no-title"><span>Employees List</span></h3>
+                      <select
+                        name="page-no"
+                        class="form-select select-pages form-select ps-2"
+                        id="page-no"
+                      >
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option selected value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                      </select>
+                      <h6 class="pt-1 labelof-pages">of <span id="totalItems"></span></h6>
+                    </div>
+
+                    <button"
+                      type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                      class="btn btn-primary d-flex align-items-center add-button px-2 py-1 rounded-3" id="employAddBtn"
+                    >
+                      Add Employee
+                    </button>
+                  </div>
+                </div>
+
+                <div class="row" id="tableHead">
+                  <table class="table table-hover" id="table">
+                    <thead>
+                      <tr id="tableHeading">
+                        <th class="tr-head" scope="col">
+                          Sl.No <i class="fa-solid fa-angle-down"></i>
+                        </th>
+                        <th class="tr-head" scope="col">
+                          Name <i class="fa-solid fa-angle-down"></i>
+                        </th>
+                        <th class="tr-head" scope="col">
+                          Email <i class="fa-solid fa-angle-down"></i>
+                        </th>
+                        <th class="tr-head" scope="col">
+                          Phone <i class="fa-solid fa-angle-down"></i>
+                        </th>
+                        <th class="tr-head" scope="col">
+                          Gender <i class="fa-solid fa-angle-down"></i>
+                        </th>
+                        <th class="tr-head" scope="col">
+                          DOB <i class="fa-solid fa-angle-down"></i>
+                        </th>
+                        <th class="tr-head" scope="col">
+                          Country <i class="fa-solid fa-angle-down"></i>
+                        </th>
+                        <th id="thActionBtns" class="tr-head" scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                      <tr>
+                        <th class="colo-r table-slno" scope="row">#01</th>
+                        <td class="colo-r">
+                            <img src="New folder/New folder/1.png" width="30px" style="padding : 1px 0 1px 0" class="rounded-4"  alt="" />
+                            <span id="employeeName">Mr. Michael Johnson</span>
+                        </td>
+                        <td class="colo-r">michaeljohnson@example.com</td>
+                        <td class="colo-r">5551234567</td>
+                        <td class="colo-r">Male</td>
+                        <td class="colo-r">10 December 1985</td>
+                        <td class="colo-r">USA</td>
+                        <td class="colo-r">
+                          
+                          <div class="dropdown">
+                            <button class="btn btn-secondary actionBtns hoverEditBtn px-2 py-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              <i class="fa-solid fa-ellipsis"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li  class="li-dropdown"><a class="dropdown-item py-1 px-2" href="preview_page.html"><span class="d-flex"><div class="subDrpFlx"><i class="fa-regular fa-eye"></i></div><span class="subMenuViewDetail dropMenus">View Details</span></span></a></li>
+                              <li  data-bs-toggle="modal" data-bs-target="#exampleModa2" class="li-dropdown"><a class="dropdown-item drp-edit d-block py-1 px-2" href="#"><span class="d-flex"><div class="subDrpFlx"><i class="fa-solid fa-pen"></i></div><span class="subMenuEdit dropMenus">Edit</span></span></a></li>
+                              <li  data-bs-toggle="modal" data-bs-target="#exampleModa3" class="li-dropdown"><a class="dropdown-item drp-delete d-block py-1 px-2" href="#"><span class="d-flex"><div class="subDrpFlx"><i class="fa-regular fa-trash-can"></i></div><span class="subMenuDelete dropMenus">Delete</span></span></a></li>
+                            </ul>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-end v-100">
+              <span class="position-absolute" id="serchResultNo"></span>
+              </div>
+
+
+
+              
+            <div aria-label="Page navigation example">
+              <ul id="paginationUl" class="pagination justify-content-end align-items-end pe-3">
+                <!-- <a class="page-link"></a> -->
+
+              </ul>
+            </div>
+          </div>
+          <hr class="hr-footer m-0" />
+
+          <footer class="footer px-4 py-0">
+            <div class="row">
+              <div class="col-lg-12 d-flex justify-content-between">
+                <div class="copyright-text">
+                  <h6 class="h6">
+                    © 2023 All Rights Reserved. <span>Stackup</span>
+                  </h6>
+                </div>
+
+                <div class="copyright-links d-flex gap-4">
+                  <a href="" class="anchor-t">Terms of Use</a>
+                  <a href="" class="anchor-t">Privacy Policy</a>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+
+<!-- Modal Add employee -->
+<div class="modal modal-lg fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title fs-5" id="exampleModalLabel">Add Employee</span>
+        <label for="addFormReset" type="button" class="btn btn-close me-1" data-bs-dismiss="modal" aria-label="Close"></label>
+      </div>
+      <div class="modal-body">
+
+        <form id="addEmployeeForm" class="card p-3">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="uploadBg" id="imageInputBg">
+                <label id="placeholdderImageUploadLabel" for="upload" class="uploadLabel d-flex flex-column gap-1 align-items-center justify-content-center rounded-3">
+                <div for="upload" id="bg-upload" class="d-flex flex-column align-items-center">
+                  <i id="nonebyuploadicon" class="upload-bg fa-solid fa-cloud-arrow-up"></i>
+                  <span id="upload-title" class="upload-bg">Upload Image</span>
+                  <span id="upload-tagline" class="upload-bg">PNG, JPG files are allowed</span>
+                  <img id="avatarimg" src="" alt="">
+                </div></label>
+                <input type="file" onchange="avatarPreview()" class="d-none" id="upload">
+              </div>
+            </div>
+          </div>
+
+          
+
+          <!-- Salutation / FName / LName -->
+          <div class="row">
+            <div class="col-lg-2">
+              <label for="salutation">Salutation</label>
+              <select name="" id="salutation" class="form-select form-select-sm">
+                <option selected value="">select</option>
+                <option value="Mr">Mr</option>
+                <option value="Ms">Ms</option>
+              </select>
+              <span id="SalutationValidation" class="addValidation"></span>
+            </div>
+
+            <div class="col-lg-5">
+              <label for="firstName">Firs tName</label>
+              <input placeholder="Firstname" type="text" id="firstName" class="form-control form-control-sm">
+              <span id="FirstnameValidation" class="addValidation"></span>
+            </div>
+            <div class="col-lg-5">
+              <label for="lastName">Last Name</label>
+              <input type="text" placeholder="Lastname" id="lastName" class="form-control form-control-sm">
+              <span id="LastnameValidation" class="addValidation"></span>
+            </div>
+          </div>
+
+          <!-- Email phone -->
+          <div class="row">
+            <div class="col-lg-6">
+              <label for="email">Email</label>
+              <input autocomplete="email" type="email" placeholder="email" id="email" class="form-control form-control-sm">
+              <span id="emailaddValidation" class="addValidation"></span>
+            </div>
+            <div class="col-lg-6">
+              <label for="phoneNo">Mobile Number</label>
+              <input type="number" placeholder="phone no" id="phoneNo" class="form-control form-control-sm">
+              <span id="MobileValidation" class="addValidation"></span>
+            </div>
+          </div>
+
+
+          <!-- UserName Password -->
+          <div class="row">
+            <div class="col-lg-6">
+              <label for="userName">UserName</label>
+              <input autocomplete="username" type="text" placeholder="Username" id="userName" class="form-control form-control-sm">
+              <span id="userNameValidation" class="addValidation"></span>
+            </div>
+            <div class="col-lg-6">
+              <label for="password">Password</label>
+              <input type="password" placeholder="password" id="password" class="form-control form-control-sm">
+              <p id="PasswordValidation" class="addValidation"></p>
+            </div>
+          </div>
+
+
+          <!-- DOB Gender -->
+          <div class="row">
+            <div class="col-lg-6">
+              <label for="dob">Date of Birth</label>
+              <input type="date" id="dob" class="form-control form-control-sm">
+              <span id="DOBValidation" class="addValidation"></span>
+            </div>
+            <div class="col-lg-6">
+              <label class="mb-1">Gender</label>
+              <div class="radioResize d-flex gap-4 align-items-center">
+                <div class="male d-flex align-items-center">
+                  <input type="radio" class="mt-1" style="height:17px; width:17px; vertical-align: -webkit-baseline-middle;" id="male" name="gender" value="Male">
+                  <label for="male">Male</label>
+                </div>
+                <div class="female d-flex align-items-center">
+                  <input type="radio" id="female" name="gender" value="Female" class="mt-1" style="height:17px; width:17px; vertical-align: -webkit-baseline-middle;">
+                  <label for="female">Female</label>
+                </div>
+                <!-- <span id="GenderValidation" class="addValidation"></span> -->
+              </div>
+              <span id="GenderValidation" class="addValidation"></span>
+            </div>
+          </div>
+
+
+          <!-- Qualifications -->
+          <div class="row">
+            <div class="col-lg-12">
+              <label for="qualifications">Qualifications</label>
+              <input type="text" placeholder="Qualifications" id="qualifications" class="form-control form-control-sm">
+              <span id="QualificationValidation" class="addValidation"></span>
+            </div>
+          </div>
+
+
+          <!-- Address -->
+          <div class="row">
+            <div class="col-lg-12">
+              <label for="address">Address</label>
+              <input placeholder="Address" type="text" id="address" class="form-control form-control-sm">
+              <span id="AddressValidation" class="addValidation"></span>
+            </div>
+          </div>
+
+
+          <!-- Country State -->
+          <div class="row">
+            <div class="col-lg-6">
+              <label for="country">Country</label>
+              <select name="" id="country" class="form-select form-select-sm">
+                <option selected value="">select</option>
+                <option value="India">India</option>
+                <option value="China">China</option>
+                <option value="USA">USA</option>
+              </select>
+              <span id="CountryValidation" class="addValidation"></span>
+            </div>
+            <div class="col-lg-6">
+              <label for="state">State</label>
+              <select name="" id="state" class="form-select form-select-sm">
+                <option selected value="">select</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="TamiNadu">TamiNadu</option>
+              </select>
+              <span id="stateValidation" class="addValidation"></span>
+            </div>
+          </div>
+
+
+          <!-- city pinZip -->
+          <div class="row">
+            <div class="col-lg-6">
+              <label for="city">City</label>
+              <input placeholder="City" type="text" id="city" class="form-control form-control-sm">
+              <span id="cityValidation" class="addValidation"></span>
+            </div>
+            <div class="col-lg-6">
+              <label for="pinZip">Pin / Zip</label>
+              <input placeholder="Pin" type="number" id="pinZip" class="form-control form-control-sm">
+              <span id="pinzipValidation" class="addValidation"></span>
+            </div>
+          </div>
+
+          <input id="addFormReset" type="reset" class="btn d-none btn-secondary"></input>
+
+          <!-- <button type="submit" class="btn btn-primary" id="submitAdd">Submit</button> -->
+
+
+
+
+
+        </form>
+        
+      </div>
+      <div class="modal-footer">
+        <label for="addFormReset" type="reset" id="addFormClose" class="btn btn-secondary" data-bs-dismiss="modal">Close</label>
+        <label id="addFormSubmit" class="btn btn-primary">Add Employee</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- Modal Edit employee -->
+<div class="modal modal-lg fade" id="exampleModa2" tabindex="-1" aria-labelledby="exampleModalLabe2" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title fs-5" id="exampleModalLabel">Edit Employee</span>
+        <button type="button" class="btn btn-close me-1" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+
+        <form action="" class="card p-3">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="uploadBg d-flex align-items-center gap-4" id="imageInputBg">
+                <label id="editformimgPlaceholder" class="d-flex flex-column gap-1 align-items-center justify-content-center rounded-3 uploadLabel">
+                  <img id="editImagePreview" src="profile/1.png" alt="">
+                </label>
+                <label for="Editformupload" class="btn btn-primary">Change</label>
+                <label id="imgDel" class="btn btn-danger">Delete</label>
+                <input type="file" class="d-none" onchange="EditavatarPreview()" id="Editformupload">
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Salutation / FName / LName -->
+          <div class="row">
+            <div class="col-lg-2">
+              <label for="salutationEdit">Salutation</label>
+              <select name="" id="salutationEdit" class="form-select form-select-sm">
+                <option selected value="">select</option>
+                <option value="Mr">Mr</option>
+                <option value="Ms">Ms</option>
+              </select>
+              <span id="salutationEditV" class="addValidation"></span>
+            </div>
+
+            <div class="col-lg-5">
+              <label for="firstNameEdit">Firs tName</label>
+              <input type="text" id="firstNameEdit" class="form-control form-control-sm">
+              <span id="firstNameEditV" class="addValidation"></span>
+            </div>
+            <div class="col-lg-5">
+              <label for="lastNameEdit">Last Name</label>
+              <input type="text" id="lastNameEdit" class="form-control form-control-sm">
+              <span id="lastNameEditV" class="addValidation"></span>
+            </div>
+          </div>
+
+          <!-- Email phone -->
+          <div class="row">
+            <div class="col-lg-6">
+              <label for="emailEdit">Email</label>
+              <input type="email" id="emailEdit" class="form-control form-control-sm">
+              <span id="emailEditV" class="addValidation"></span>
+            </div>
+            <div class="col-lg-6">
+              <label for="phoneNoEdit">Mobile Number</label>
+              <input type="number" id="phoneNoEdit" class="form-control form-control-sm">
+              <span id="phoneEditV" class="addValidation"></span>
+            </div>
+          </div>
+
+
+          <!-- UserName Password -->
+          <div class="row">
+            <div class="col-lg-6">
+              <label for="userNameEdit">UserName</label>
+              <input type="text" id="userNameEdit" class="form-control form-control-sm">
+              <span id="usernameEditV" class="addValidation"></span>
+            </div>
+            <div class="col-lg-6">
+              <label for="passwordEdit">Password</label>
+              <input type="password" id="passwordEdit" class="form-control form-control-sm">
+              <span id="passwordEditV" class="addValidation"></span>
+            </div>
+          </div>
+
+
+          <!-- DOB Gender -->
+          <div class="row">
+            <div class="col-lg-6">
+              <label for="dobEdit">Date of Birth</label>
+              <input type="date" id="dobEdit" class="form-control form-control-sm">
+              <span id="editDobValidation" class="addValidation"></span>
+            </div>
+            <div class="col-lg-6">
+              <label class="mb-1">Gender</label>
+              <div class="d-flex gap-4 align-items-center">
+                <div class="male d-flex">
+                  <input type="radio" id="maleEdit" name="Editgender" value="Male" class="mt-1" style="height:17px; width:17px; vertical-align: -webkit-baseline-middle;">
+                  <label for="maleEdit">Male</label>
+                </div>
+                <div class="female d-flex">
+                  <input type="radio" id="femaleEdit" name="Editgender" value="Female" class="mt-1" style="height:17px; width:17px; vertical-align: -webkit-baseline-middle;">
+                  <label for="femaleEdit">Female</label>
+                </div>
+              </div>
+              <span id="editGenderValidation" class="addValidation"></span>
+            </div>
+          </div>
+
+
+          <!-- Qualifications -->
+          <div class="row">
+            <div class="col-lg-12">
+              <label for="qualificationsEdit">Qualifications</label>
+              <input type="text" id="qualificationsEdit" class="form-control form-control-sm">
+              <span id="qualifEditV" class="addValidation"></span>
+            </div>
+          </div>
+
+
+          <!-- Address -->
+          <div class="row">
+            <div class="col-lg-12">
+              <label for="addressEdit">Address</label>
+              <input type="text" id="addressEdit" class="form-control form-control-sm">
+              <span id="addressEditV" class="addValidation"></span>
+            </div>
+          </div>
+
+
+          <!-- Country State -->
+          <div class="row">
+            <div class="col-lg-6">
+              <label for="countryEdit">Country</label>
+              <select name="" id="countryEdit" class="form-select form-select-sm">
+                <option selected value="">select</option>
+                <option value="India">India</option>
+                <option value="China">China</option>
+                <option value="USA">USA</option>
+              </select>
+              <span id="countryEditV" class="addValidation"></span>
+            </div>
+            <div class="col-lg-6">
+              <label for="stateEdit">State</label>
+              <select name="" id="stateEdit" class="form-select form-select-sm">
+                <option selected value="">select</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="TamiNadu">TamiNadu</option>
+              </select>
+              <span id="stateEditV" class="addValidation"></span>
+            </div>
+          </div>
+
+
+          <!-- city pinZip -->
+          <div class="row">
+            <div class="col-lg-6">
+              <label for="cityEdit">City</label>
+              <input type="text" id="cityEdit" class="form-control form-control-sm">
+              <span id="cityEditV" class="addValidation"></span>
+            </div>
+            <div class="col-lg-6">
+              <label for="pinZipEdit">Pin / Zip</label>
+              <input type="number" id="pinZipEdit" class="form-control form-control-sm">
+              <span id="pinzipEditV" class="addValidation"></span>
+            </div>
+          </div>
+
+
+        </form>
+        
+      </div>
+      <div class="modal-footer">
+        <label type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</label>
+        <label type="button" id="EditSubmit" class="btn btn-primary">Save changes</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- Modal delete employee -->
+<div class="modal modal-xs fade" id="exampleModa3" tabindex="-1" aria-labelledby="exampleModalLabe3" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Employee</h1>
+        <button type="button" class="btn btn-close me-1" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="card p-3">
+          <div class="row">
+            <div class="col-lg-12">
+              <span>Are you sure want to delete employee</span>
+            </div>
+          </div>
+        <!-- </form> -->
+        
+      </div>
+      <div id="delBtns" class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">cancel</button>
+        <button id="delSubmitBtn" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <script src="script.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+
+  <link'
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <title>Employee-View</title>
+</head>
+
+<body>
+  <div class="viewlayout">
+    <div class="container-fluid">
+      <div id="viewemployee">
+        <div class="sidebar">
+          <div class="title">
+            <p>Employee <br> Management</p>
+            <hr />
+          </div>
+
+          <div class="sidebar_items ">
+            <ul class=" nav_bar d-flex flex-column">
+              <li><a href="#"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+              <li> <a href="index.html"><i class="ri-bar-chart-line"></i>Employees </a></li>
+              <li> <a href="#"><i class="fa-solid fa-user"></i>My profile </a></li>
+              <li> <a href="#"><i class="ri-lock-fill"></i></i>Log out </a></li>
+            </ul>
+          </div>
+
+          <div class="sidebar_footer">
+            <h5>Powered by</h5>
+            <div class="logo">
+              <img src="img/image 1.svg" alt="">
+            </div>
+          </div>
+        </div>
+
+
+        <!---->
+        <div class="main_body viewbody d-flex flex-column ">
+          <header class="header d-flex justify-content-end">
+            <div class="heading">
+              <h5> Dashboard / Employees </h5>
+              <h3> Employees</h3>
+            </div>
+            <!-- <div class="login">
+               
+                  <form>
+                    <div class="form-group formgroup ">
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Search">
+                    </div>
+            </form>
+            <div class="head d-flex">
+            <i class="fa-regular fa-bell"></i>
+            
+            <div class="avatar">
+              <img class="avatar" src="img/Elipse 5.svg" >
+            </div>
+            
+            </div>
+                </div> -->
+          </header>
+
+          <div class="card mb-3 vc p-2">
+            <div class="bg_view_img">
+              <img src="img/Background Image.svg" class="card-img-top" alt="...">
+
+              <div class="view_user_image">
+                <img src="" class="card-img-top" alt="..." id="user_image" class="userviewimg">
+              </div>
+            </div><br><br>
+            <div class="card-body">
+
+
+              <div class="viedata">
+                <div class="row viewcontent">
+                  <div class="col viewbox">
+                    <label for="text " class="form" id="viewname"></label><br>
+                    <label for="text " class="form" id="viewemail"></label>
+                  </div>
+                </div>
+                <div class="row viewcontent">
+                  <div class="col viewbox">
+                    gender<br>
+                    <label for="text " class="form" id="viewgender"></label>
+
+                  </div>
+                  <div class="col viewbox">
+                    age<br>
+                    <label for="text " class="form" id="viewage"></label>
+                  </div>
+                  <div class="col viewbox">
+                    date of birth<br>
+                    <label for="text " class="form" id="viewdob"></label>
+                  </div>
+                </div>
+
+                <div class="row viewcontent">
+                  <div class="col viewbox">
+                    Mobile number<br>
+                    <label for="text " class="form" id="viewphone"></label>
+                  </div>
+                  <div class="col viewbox">
+                    qualifications<br>
+                    <label for="text " class="form" id="viewqualification"></label>
+                  </div>
+
+                </div>
+
+
+                <div class="row viewcontent">
+                  <div class="col viewbox">
+                    Address<br>
+                    <label for="text " class="form" id="viewaddress"></label>
+                  </div>
+                  <div class="col viewbox">
+                    username<br>
+                    <label for="text " class="form" id="viewusername"></label>
+                  </div>
+
+                </div>
+                <div class="footer_section p-3 d-grid gap-2 d-md-flex justify-content-md-end">
+                  <button class="btn btn-sm btn-danger deletebtn p-3" type="button" id="viewdelete">Delete</button>
+                  <button class="btn btn-primary filled btn-sm p-3" type="button" id="viewedit"> edit changes </button>
+
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <!--edit employee-->
+
+        <div id="overlay"></div>
+        <div id="editemployee_view" class="edit">
+          <div class="card p-4 mb-4 mt-4">
+            <form id="formedit" name="forms">
+              <section class="header ">
+                <div class="headtitle d-flex  align-items-center">
+                  <h3>Edit Employee</h3>
+
+                  <div class="iconmark d-flex ">
+                    <i class="fa-solid fa-xmark" id="upclose"></i>
+                  </div>
+                </div>
+
+                <div class="uploadwrap d-flex gap-4 align-items-center">
+                  <div class="imageupload d-flex p-2 mt-3">
+
+                    <label for="image_upload_edit">
+                      <img src="" alt="" id="edit_image">
+
+
+                      <input type="file" id="image_upload_edit" name="filetag" class="iconedit" name="avatars"
+                        accept="image/jpg,image/jpeg,image/png,image/svg">
+
+                    </label>
+
+                  </div>
+                  <div class="changebutton">
+                    <label for="image_upload_edit" class="btn me-md-2 nonline nonchange" type="label">Change</label>
+                  </div>
+                </div>
+              </section>
+              <div class="row">
+                <div class="col-sm-4 mt-2">
+                  <label for="exampleFormControlInput1" class="form-label" id="editsalutation">Salutation</label>
+                  <select class="form-control " aria-label="Default select example" id="editsalutation">
+                    <option selected>Mr.</option>
+                    <option value="ms">Ms</option>
+                    <option value="prof">prof</option>
+                    <option value="prof">Dr</option>
+                  </select>
+                  <span id="editsalutation-error" class="text-danger"></span>
+                </div>
+                <div class="col-sm-4 mt-2">
+                  <label for="validationCustom01" class="form-label">First name</label>
+                  <input type="text" class="form-control" id="editfirstname" placeholder="Mark" required />
+                  <span id="editfirstname-error" class="text-danger"></span>
+                </div>
+                <div class="col-sm-4 mt-2">
+                  <label for="validationCustom02" class="form-label">Last name</label>
+                  <input type="text" class="form-control" id="editlastname" placeholder="Otto" required />
+                  <span id="editlastname-error" class="text-danger"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 mt-2">
+                  <label for="exampleInputEmail1" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="editemail" aria-describedby="emailHelp"
+                    placeholder=" enter email" />
+                  <span id="editemail-error" class="text-danger"></span>
+                </div>
+                <div class="col-sm-6 mt-2">
+                  <label for="phone no" class="form-label">Phone no</label>
+                  <input type="number" class="form-control" id="editphone" placeholder="enter phoneno" />
+                  <span id="editphone-error" class="text-danger"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 mt-2">
+                  <label for="phone no" class="form-label">Date of birth</label>
+                  <input type="date" class="form-control" id="editdate" />
+                  <span id="editdate-error" class="text-danger"></span>
+                </div>
+                <div class="col-sm-6 mt-2">
+                  <label for="Gender" class="form-label">Gender</label>
+
+                  <div class="d-flex gap-3">
+                    <div class="form-check">
+                      <input type="radio" class="form-check-input" id="male" name="editgender" value="male" />
+
+                      <label class="form-check-label" for="radio2">Male</label>
+                    </div>
+
+                    <div class="form-check">
+                      <input type="radio" class="form-check-input" id="female" name="editgender" value="female" />
+                      <label class="form-check-label" for="radio1">Female</label>
+                    </div>
+                    <span id="editgender-error" class="text-danger"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 mt-2">
+                  <label for="text" class="form-label">qualifications</label>
+                  <input type="text" class="form-control" id="editqualifications" placeholder="address" />
+                  <span id="editqualification-error" class="text-danger"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 mt-2">
+                  <label for="adress " class="form-label">Address</label>
+                  <input type="text" class="form-control" id="editaddress" placeholder="address" />
+                  <span id="editaddress-error" class="text-danger"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 mt-2">
+                  <label for="exampleFormControlInput1" class="form-label" id="editcountry">Country</label>
+                  <select class="form-select" aria-label="Default select example" id="editcountry">
+                    <option selected>india</option>
+                    <option value="india">australia</option>
+                    <option value="australia">canada</option>
+                  </select>
+                  <span id="editcountry-error" class="text-danger"></span>
+                </div>
+
+                <div class="col-sm-6 mt-2">
+                  <label for="exampleFormControlInput1" class="form-label" id="editstate">state</label>
+                  <select class="form-select" aria-label="Default select example" id="editstate">
+                    <option selected>kerala</option>
+                    <option value="sydney">sydney</option>
+                    <option value="vancover">vancover</option>
+                  </select>
+                  <span id="editstate-error" class="text-danger"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 mt-2">
+                  <label for="City" class="form-label">City</label>
+                  <input type="text" class="form-control" id="editcity" placeholder="enter city" />
+                  <span id="editcity-error" class="text-danger"></span>
+                </div>
+                <div class="col-sm-6 mt-2">
+                  <label for="number " class="form-label">pin/zip</label>
+                  <input type="text" class="form-control" id="editpin" placeholder="pin/zip" />
+                  <span id="editpin-error" class="text-danger"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 mt-2">
+                  <label for="text" class="form-label">username</label>
+                  <input type="text" class="form-control" id="editusername" placeholder="username" />
+                  <span id="editusername-error" class="text-danger"></span>
+                </div>
+                <div class="col-sm-6 mt-2">
+                  <label for="text " class="form-label">password</label>
+                  <input type="password" class="form-control" id="editpassword" placeholder="password" />
+                  <span id="editpassword-error" class="text-danger"></span>
+                </div>
+              </div>
+              <div class="footer_section p-3 d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn  me-md-2 nonline" type="button" id="editcancelbtn">Cancel</button>
+                <button class="btn  btn-primary filled" type="button" id="viewsave">
+                  Save changes
+                </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <!--deleteemployee-->
+
+      <div id="overlay"></div>
+      <div id="delete_employee_view" class="deleteemployee" style="width: 50%">
+        <div class="confirmdelete">
+          <h4>Delete Employee</h4>
+          <div class="iconmark d-flex ">
+            <i class="fa-solid fa-xmark" id="viewdeleteclose"></i>
+          </div>
+        </div>
+        <h6 class="confirm">Are you sure you want to this employee?</h6>
+
+        <div class="footer_section p-3 d-grid gap-2 d-md-flex justify-content-md-end">
+          <button class="btn me-md-2 nonline" id="delete_cancel" type="button">Cancel</button>
+          <button class="btn btn-danger deletebtn" type="button" id="viewdelete_data"
+            onclick="delete_employee_data(id)">
+            Delete
+          </button>
+        </div>
+      </div>
+
+
+
+
+
+
+
+      <hr class="hr-footer m-0  viewhr" />
+      <div class="footer">
+
+        <h6 class="rights">
+          © 2023 All Rights Reserved. <span>Stackup</span>
+        </h6>
+
+        <div class="copyright-links d-flex gap-4">
+          <a href="" class="anchor-t">Terms of Use</a>
+          <a href="" class="anchor-t">Privacy Policy</a>
+        </div>
+      </div>
+
+
+
+
+    </div>
+
+  </div>
+  </div>
+  <script src="view.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
